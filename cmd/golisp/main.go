@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"golisp/core"
 
 	"github.com/chzyer/readline"
 )
@@ -11,10 +12,10 @@ func main() {
 	fmt.Println("golisp v0.0.1")
 	fmt.Println("Press CTRL+C to exit the REPL session.")
 	fmt.Println("")
-	acceptInput()
+	repl()
 }
 
-func acceptInput() {
+func repl() {
 	rl, err := readline.New("golisp> ")
 	if err != nil {
 		panic(err)
@@ -26,6 +27,6 @@ func acceptInput() {
 		if err != nil {
 			break
 		}
-		println(line)
+		fmt.Println(core.Lex(line))
 	}
 }
