@@ -1,15 +1,28 @@
 package core
 
-// This map defines the tokens known to the language.
-var _tokens = map[byte]string{
-	'(': "LPAREN",
-	')': "RPAREN",
-	'{': "LBRACK",
-	'}': "RBRACK",
+// These constants define the possible language tokens.
+const (
+	// Delimiters
+	LPAREN = '('
+	RPAREN = ')'
+	LBRACK = '['
+	RBRACK = ']'
+	SPACE  = ' '
+
+	// Operators
+	PLUS = '+'
+
+	// System
+	IDENTIFIER = "IDENTIFIER"
+	NUMBER     = "NUMBER"
+	ILLEGAL    = "ILLEGAL"
+)
+
+// A Token is the smallest subdivision of source code.
+type Token struct {
+	ID    string
+	Value string
 }
 
-// This map defines the keywords known to the language.
-var _keywords = map[string]string{
-	"def":  "DEF",
-	"defn": "DEFN",
-}
+// Tokens contains zero or more tokens, extracted via lexing.
+type Tokens []Token

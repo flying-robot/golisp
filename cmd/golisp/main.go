@@ -27,6 +27,9 @@ func repl() {
 		if err != nil {
 			break
 		}
-		fmt.Println(core.Lex(line))
+		for _, token := range core.Lex(line) {
+			fmt.Println(token)
+		}
+		fmt.Println()
 	}
 }
