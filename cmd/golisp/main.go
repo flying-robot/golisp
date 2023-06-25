@@ -3,7 +3,6 @@ package main
 
 import (
 	"fmt"
-	"golisp/core"
 
 	"github.com/chzyer/readline"
 )
@@ -23,13 +22,11 @@ func repl() {
 	defer rl.Close()
 
 	for {
-		line, err := rl.Readline()
+		_, err := rl.Readline()
 		if err != nil {
 			break
 		}
-		for _, token := range core.Lex(line) {
-			fmt.Println(token)
-		}
+		// TODO
 		fmt.Println()
 	}
 }
