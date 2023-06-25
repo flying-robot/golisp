@@ -7,4 +7,4 @@ repl:
 
 .PHONY: test
 test:
-	@go test $(TEST_FLAGS) golisp/core
+	@go test $(TEST_FLAGS) golisp/lang
